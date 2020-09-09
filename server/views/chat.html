@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chat group</title>
+	<link rel="stylesheet" type="text/css" href="css/chat.css">
+</head>
+<body>
+
+	<div class="container">
+		<div class="account">
+			<div class="account_setting">
+				<div class="imgWrapper">
+					<img class="account_img" src="http://placehold.it/100x100" width="100" height="100" alt="account photo">
+				</div>
+				<h1 class="account_username"></h1>
+				<a href="/edit" class="editLink" tabindex="-1">Edit Profile</a>
+			</div>
+			<button class="logOutBtn" tabindex="-1">Log Out</button>
+		</div>
+
+		<div class="wrapper_chat">
+			<div class="chat_header">
+				<h1 class="chat_heading">Real Chat</h1>		
+				<p class="typing"></p>
+			</div>	
+
+			<ul class="posts">
+				<% post.map(p => { %>
+				<li class="one_post">
+					<% if(p.avatar) { %>
+						<img class="user_photo" src="images/<%= p.avatar %>" alt="img" width="50" height="50">
+					<% } %>
+					<% if (!p.avatar) { %>
+						<img class="user_photo" src="http://placehold.it/50x50" alt="img" width="50" height="50">
+					 <% } %>
+					<div class="one_post__post">
+						<span class="username"><%= p.username %></span>
+						<div>
+							<span class="username_post"><%= p.post %></span>
+							<time class="time"><%= p.posted_at%></time>
+						</div>
+					</div>
+				</li>	
+				<% }) %>
+				<!-- <li class="date">01.01.2020</li> -->
+			</ul>
+
+			<form class="form">
+				<div>
+					<input class="postInput" type="text" name="post" placeholder="Enter post ... " required autocomplete="off">
+					<button tabindex="-1" class="send" type="submit">
+						<span><i class="fa fa-paper-plane" aria-hidden="true"></i></span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>		
+
+	<script src="socket/socket.io.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
+	<script src="js/chat.js"></script>
+</body>
+</html>

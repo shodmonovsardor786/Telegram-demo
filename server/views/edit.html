@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Edit Profile</title>
+	<link rel="stylesheet" href="css/edit.css">
+</head>
+<body>
+
+	<div class="container">
+		<div class="editor">
+<!-- 
+			<form action="http://localhost:4000/postfile" method="POST" class="file" enctype="multipart/form-data">
+				<div class="wrapperImg">
+					<img class="accountImg" src="http://placehold.it/120x120" width="120" height="120" alt="user">
+					<label class="file-upload" for="file-upload">new photo</label>
+				</div>
+				<input name="img" id="file-upload" type="file">
+				<button class="fileBtn">OK</button>
+			</form> -->
+
+			<form class="editNames">
+				<p class="updated"></p>
+				<h1 class="username">username</h1>
+				<input class="usernameInput" type="text" placeholder="new username">
+				<input class="password" type="password" minlength="6" placeholder="new password">
+				<div style="width: 75%; margin-top: 40px; display: flex; align-items: center; justify-content: space-between;">
+					<a class="back" href="/chat">BACK</a>
+					<button class="fileBtn">OK</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<script src="js/edit.js"></script>
+</body>
+</html>
